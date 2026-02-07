@@ -1,8 +1,11 @@
-#include "adt.h"
+#include <stdio.h>
+#include "linked_list.h"
+#include "array.h"
 
 int main() {
+
     // ============================================================
-    // PENGUJIAN ADT ARRAY DINAMIS
+    // PENGUJIAN ADT ARRAY DINAMIS || ROSSI
     // ============================================================
     printf("\n--- ADT ARRAY DINAMIS ---\n");
     DynamicArray arr;
@@ -28,28 +31,12 @@ int main() {
 
 
     // ============================================================
-    // PENGUJIAN ADT LINKED LIST
+    // PENGUJIAN ADT LINKED LIST || DAVAR
     // ============================================================
-    printf("\n--- ADT LINKED LIST ---\n");
-    Node *list;
-    
-    initList(&list);
-    printf("Apakah list kosong? %s\n", isEmptyList(list) ? "Ya" : "Tidak");
 
-    addList(&list, 100); // Di dalam add ada AllocateNode
-    addList(&list, 200);
-    addList(&list, 300);
-    
-    printf("Panjang List: %d\n", lengthList(list));
-    
-    Node* found = searchList(list, 200);
-    if(found != NULL) printf("Cari angka 200: Ditemukan!\n");
-    
-    removeList(&list, 200); // Di dalam remove ada DeallocateNode
-    printf("Panjang List setelah remove: %d\n", lengthList(list));
-    
-    destroyList(&list); // Membersihkan semua node sisa
-    printf("Linked List berhasil dihancurkan.\n");
+    printf("\n--- ADT LINKED LIST  ---\n");
+
+    struct node* head = NULL;
 
     return 0;
 }

@@ -1,4 +1,4 @@
-#include "adt.h"
+#include "array.h"
 
 // ============================================================
 // [ ARRAY ] - INIT / CREATE & ALLOCATE
