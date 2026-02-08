@@ -11,6 +11,15 @@ void initArray(DynamicArray *a, int cap) {
 }
 
 // ============================================================
+// [ ARRAY ] - ITERATE
+// ============================================================
+void iterateArray(DynamicArray *a) {
+    for(int i =0;i<a->size;i++){
+        printf("elemen array : %d\n",a->data[i]);
+    }
+}
+
+// ============================================================
 // [ ARRAY ] - ISEMPTY
 // ============================================================
 bool isEmptyArray(DynamicArray *a) {
@@ -67,108 +76,4 @@ void destroyArray(DynamicArray *a) {
 // ============================================================
 int lengthArray(DynamicArray *a) {
     return a->size;
-}
-
-// ------------------------------------------------------------
-// SEPARATOR: LINKED LIST IMPLEMENTATION
-// ------------------------------------------------------------
-
-// ============================================================
-// [ LIST ] - INIT / CREATE
-// ============================================================
-void initList(Node **head) {
-    *head = NULL;
-}
-
-// ============================================================
-// [ LIST ] - ISEMPTY
-// ============================================================
-bool isEmptyList(Node *head) {
-    return (head == NULL);
-}
-
-// ============================================================
-// [ LIST ] - ALLOCATE
-// ============================================================
-Node* allocateNode(int val) {
-    // ALLOCATE satu per satu per node
-    Node *newNode = (Node *)malloc(sizeof(Node));
-    if (newNode != NULL) {
-        newNode->value = val;
-        newNode->next = NULL;
-    }
-    return newNode;
-}
-
-// ============================================================
-// [ LIST ] - DEALLOCATE
-// ============================================================
-void deallocateNode(Node *node) {
-    free(node);
-}
-
-// ============================================================
-// [ LIST ] - ADD / INSERT
-// ============================================================
-void addList(Node **head, int val) {
-    Node *newNode = allocateNode(val); // Memanggil Allocate
-    if (newNode != NULL) {
-        newNode->next = *head;
-        *head = newNode;
-    }
-}
-
-// ============================================================
-// [ LIST ] - SEARCH
-// ============================================================
-Node* searchList(Node *head, int target) {
-    Node *curr = head;
-    while (curr != NULL) {
-        if (curr->value == target) return curr;
-        curr = curr->next;
-    }
-    return NULL;
-}
-
-// ============================================================
-// [ LIST ] - DEL / REMOVE
-// ============================================================
-void removeList(Node **head, int target) {
-    Node *curr = *head;
-    Node *prev = NULL;
-    while (curr != NULL && curr->value != target) {
-        prev = curr;
-        curr = curr->next;
-    }
-    if (curr != NULL) {
-        if (prev == NULL) *head = curr->next;
-        else prev->next = curr->next;
-        deallocateNode(curr); // Memanggil Deallocate
-    }
-}
-
-// ============================================================
-// [ LIST ] - DESTROY
-// ============================================================
-void destroyList(Node **head) {
-    Node *curr = *head;
-    Node *nextN;
-    while (curr != NULL) {
-        nextN = curr->next;
-        deallocateNode(curr); // Memanggil Deallocate berulang kali
-        curr = nextN;
-    }
-    *head = NULL;
-}
-
-// ============================================================
-// [ LIST ] - LENGTH
-// ============================================================
-int lengthList(Node *head) {
-    int count = 0;
-    while (head != NULL) {
-        count++;
-        head = head->next;
-    }
-    return count;
 }
