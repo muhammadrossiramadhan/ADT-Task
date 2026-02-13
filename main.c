@@ -17,14 +17,17 @@ int main() {
     push(&S, 50);
 
     isFullStack(S);
-    print_nodes(S); // Memanggil print stack
+    print_nodes(S); 
+
     top(S);
 
     pop(&S);
     pop(&S);
 
     isFullStack(S);
-    print_nodes(S); // Memanggil print stack
+    print_nodes(S); 
+
+    top(S);
 
     deallocateStack(&S);
     isEmptyStack(S);
@@ -40,16 +43,17 @@ int main() {
     enqueue(&Q, 100);
     enqueue(&Q, 200);
     enqueue(&Q, 300);
+    enqueue(&Q, 400);
+    enqueue(&Q, 500);
 
     isFull(Q);
-    print_queue(Q); // Memanggil print queue
-
+    print_queue(Q); 
     head(Q);
     tail(Q);
 
     dequeue(&Q);
     isFull(Q);
-    print_queue(Q); // Memanggil print queue
+    print_queue(Q); 
 
 
     deallocateQueue(&Q);

@@ -4,12 +4,12 @@ void allocateQueue(struct Queue *Q) {
     Q->head = NULL;
     Q->tail = NULL;
     Q->curSize = 0;
-    printf("[Sistem] Memori Queue berhasil dialokasikan (Inisialisasi).\n");
+    printf("[Sistem] Memori Queue berhasil dialokasikan (Inisialisasi).\n\n");
 }
 
 bool isEmpty(struct Queue Q) {
     if (Q.head == NULL) {
-        printf("[Info] Cek Queue: Status Kosong.\n");
+        printf("[Info] Cek Queue: Status Kosong.\n\n");
         return true;
     }
     return false;
@@ -17,10 +17,10 @@ bool isEmpty(struct Queue Q) {
 
 bool isFull(struct Queue Q) {
     if (Q.curSize == MAX_QUEUE) {
-        printf("PERINGATAN : QUEUE SEKARANG PENUH\n");
+        printf("\nPERINGATAN : QUEUE SEKARANG PENUH\n\n");
         return true;
     } else {
-        printf("MASIH AMAN \n");
+        printf("\nMASIH AMAN \n\n");
         return false;
     }
 }
@@ -37,9 +37,9 @@ void enqueue(struct Queue *Q, int element) {
     if (Q->head == NULL) {
         Q->head = newElement;
     } else {
-        Q->tail->next = newElement; // Update curtail->next = element
+        Q->tail->next = newElement; 
     }
-    Q->tail = newElement; // tail = element
+    Q->tail = newElement; 
     Q->curSize++;
     printf("Enqueue: %d berhasil\n", element);
 }
@@ -49,10 +49,10 @@ int dequeue(struct Queue *Q) {
     struct NodeQueue *curhead = Q->head;
     int element = curhead->value;
 
-    Q->head = curhead->next; // head = curhead->next
+    Q->head = curhead->next;
     if (Q->head == NULL) Q->tail = NULL;
 
-    curhead->next = NULL; // curhead->next = NULL
+    curhead->next = NULL; 
     free(curhead);
     Q->curSize--;
     printf("Dequeue: %d berhasil\n", element);
@@ -67,7 +67,7 @@ int head(struct Queue Q) {
 
 int tail(struct Queue Q) {
     if (Q.tail == NULL) return -1;
-    printf("nilai tail saat inI : %d\n", Q.tail->value);
+    printf("nilai tail saat inI : %d\n\n", Q.tail->value);
     return Q.tail->value;
 }
 
@@ -78,10 +78,11 @@ void print_queue(struct Queue Q) {
         printf("%d%s", ptr->value, ptr->next ? ", " : "");
         ptr = ptr->next;
     }
-    printf("]\n");
+    printf("]\n\n");
 }
 
 void deallocateQueue(struct Queue *Q) {
+    printf("Proses pembebasan memori : \n");
     while (Q->head != NULL) {
         dequeue(Q);
     }
