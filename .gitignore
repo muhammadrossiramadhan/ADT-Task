@@ -1,0 +1,19 @@
+# Compiled Executables
+*.exe
+*.out
+program_graph
+main
+main.exe
+
+# Objects & Libraries
+*.o
+*.a
+*.so
+
+# IDE & OS Garbage
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+.env
